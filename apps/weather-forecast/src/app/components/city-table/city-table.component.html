@@ -1,0 +1,22 @@
+<div>
+	<table>
+		<thead>
+			<th>City Name</th>
+			<th *ngFor="let day of period">{{ day }}</th>
+		</thead>
+		<tbody *ngIf="weather && weather.length > 0">
+			<tr *ngIf="mode == 'daily'">
+				<td>{{ city }}</td>
+				<td *ngFor="let day of period let i = index">
+					{{weather[i].temp.day}}
+				</td>
+			</tr>
+			<tr *ngIf="mode == 'hourly'">
+				<td>{{ city }}</td>
+				<td *ngFor="let day of period let i = index">
+					{{weather[i * 3].temp}}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,13 @@
+<header class="flex">
+  <h1>Welcome to {{ title }}!</h1>
+</header>
+<main>
+  <div class="filter-box">
+    <input type="text" name="cityName" [(ngModel)]="cityName" (change)="onSearchChange($event)">
+    <select [(ngModel)]="mode" (change)="onModeChange($event)">
+      <option value="daily">Daily</option>
+      <option value="hourly">Hourly</option>
+    </select>
+  </div>
+  <bp-city-table [city]="city && city.name" [mode]="mode" [weather]="weathers | async"></bp-city-table>
+</main>
